@@ -1,28 +1,15 @@
 import React from "react";
+import Card from "../Card/Card";
 import Graph from "../Graph/Graph";
+import SearchBox from "../SearchBox";
 
-function Main() {
+function Main({ googleMapLoaded, currentPosition }) {
   return (
     <main className="container mx-auto bg-white rounded-lg">
       <section className="md:grid grid-cols-7 gap-8 mx-12 my-16">
         <div className="col-span-3 text-center">
-          <div className="md:flex gap-4 items-center my-6">
-            <div className="">
-              <label htmlFor="location" className="w-full text-xl font-medium">
-                {" "}
-                Your Location{" "}
-              </label>
-            </div>
-
-            <div className="flex-1">
-              <input
-                id="location"
-                className="w-full text-lg px-2 py-1 appearance-none border-2 rounded-lg focus:outline-none"
-                type="text"
-                name="location"
-              />
-            </div>
-          </div>
+          <SearchBox googleMapLoaded={googleMapLoaded} />
+         
           <div className="mt-12">
             <div className="text-gray-400">
               {" "}
@@ -70,67 +57,15 @@ function Main() {
             {" "}
             <span> At Dhaka, Bangladesh </span>{" "}
           </div>
-          <div>
+          <div className="relative h-28">
             <Graph />
           </div>
           <div className="flex gap-4 mt-8 overflow-x-auto">
-            <div className="px-8 py-4 cursor-pointer active text-center rounded-lg">
-              <h4 className="text-sm font-bold"> Today </h4>
-              <img
-                className="w-20 object-contain"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="weather-icon"
-              />
-              <div className="text-center">
-                <h3 className="text-gray-400 text-sm font-light"> Humidity </h3>
-                <p className="text-base font-normal"> 75% </p>
-              </div>
-            </div>
-            <div className="px-8 py-4 cursor-pointer bg-gray-100 text-center rounded-lg">
-                <h4 className="text-sm font-bold"> Today </h4>
-                <img
-                className="w-20 object-contain"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="weather-icon"
-              />
-              <div className="text-center">
-                <h3 className="text-gray-400 text-sm font-light">
-                  {" "}
-                  Humidity{" "}
-                </h3>
-                <p className="text-base font-normal"> 75% </p>
-              </div>
-            </div>
-            <div className="px-8 py-4 cursor-pointer bg-gray-100 text-center rounded-lg">
-                <h4 className="text-sm font-bold"> Today </h4>
-                <img
-                className="w-20 object-contain"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="weather-icon"
-              />
-              <div className="text-center">
-                <h3 className="text-gray-400 text-sm font-light">
-                  {" "}
-                  Humidity{" "}
-                </h3>
-                <p className="text-base font-normal"> 75% </p>
-              </div>
-            </div>
-            <div className="px-8 py-4 cursor-pointer bg-gray-100 text-center rounded-lg">
-                <h4 className="text-sm font-bold"> Today </h4>
-                <img
-                className="w-20 object-contain"
-                src="http://openweathermap.org/img/wn/10d@2x.png"
-                alt="weather-icon"
-              />
-              <div className="text-center">
-                <h3 className="text-gray-400 text-sm font-light">
-                  {" "}
-                  Humidity{" "}
-                </h3>
-                <p className="text-base font-normal"> 75% </p>
-              </div>
-            </div>
+            <Card active />
+            <Card />
+            <Card />
+            <Card />
+               
           </div>
         </div>
       </section>

@@ -3,14 +3,18 @@ import { Line } from "react-chartjs-2";
 
 function Graph() {
   const [data, setData] = useState({
-    labels: [1, 2, 3, 4, 5, 6, 7],
+    labels: [1, 2, 3, 4],
     datasets: [
       {
-        label: "a",
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [65, 59, 80, 81],
         fill: true,
-        borderColor: "#5596F6",
+        borderColor: "#97BFF9",
         tension: 0.5,
+        pointHoverRadius: 8,
+        pointHitRadius: 60,
+        pointHoverBorderWidth: 4,
+        pointHoverBackgroundColor: "#5596f6",
+        pointHoverBorderColor: "#fff",
       },
     ],
   });
@@ -39,9 +43,10 @@ function Graph() {
             },
           },
         },
-        maintainAspectRatio: false,
 
+        maintainAspectRatio: false,
         backgroundColor: "#EEF4FE",
+        fill: "smooth",
         interaction: {
           intersect: false,
         },
@@ -49,7 +54,13 @@ function Graph() {
 
         scales: {
           x: {
-            display: false,
+            // display: false,
+            // ticks: {
+            //   backdropPadding: 100
+            // }
+            grid: {
+              display: false,
+            },
           },
           y: {
             display: false,
